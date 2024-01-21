@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: docker.io/avishilon22/bynet-repo
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 nameOverride: ""
 fullnameOverride: ""
@@ -24,4 +24,7 @@ serviceAccount:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
+  targetPort: 5000
+  protocol: TCP
+  name: http
